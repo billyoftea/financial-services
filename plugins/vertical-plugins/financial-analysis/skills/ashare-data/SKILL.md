@@ -1,74 +1,107 @@
 ---
 name: ashare-data
 description: |
-  Fetch and analyze Chinese A-share market data via baostock. Covers historical OHLCV, fundamentals (profitability, growth, balance sheet, cash flow), industry classification, and trading calendar.
+  Fetch and analyze Chinese A-share market data. Primary source: **akshare** (Sina/THS/Baidu).
+  Fallback: **baostock** for trade dates, industry classification, and stock lists.
 
   **Perfect for:**
   - A-share valuation and comps analysis (Shanghai/Shenzhen)
-  - Chinese company fundamental research
+  - Chinese company fundamental research (EPS, ROE, ROA, margins)
+  - PE/PB/market cap valuation metrics
   - Sector/industry screening on SSE and SZSE
+  - Market-wide PB/PE quantile analysis
   - Trading calendar checks for A-share markets
 ---
 
-# A-Share Market Data (baostock)
+# A-Share Market Data
 
-## Data Source
+## Data Sources
 
-This skill uses **baostock** (http://baostock.com), a free open-source Python library providing comprehensive Chinese A-share market data from the Shanghai and Shenzhen stock exchanges.
+| Source | Backend | Tools | Notes |
+|---|---|---|---|
+| **akshare** (primary) | Sina | K-line history | Free, no API key, no proxy needed |
+| **akshare** (primary) | THS (同花顺) | Fundamentals (EPS, ROE, margins) | Rich per-share and profitability metrics |
+| **akshare** (primary) | Baidu | PE, PB, market cap | Daily valuation time series |
+| **akshare** (primary) | Sina | Financial statements | Income, balance sheet, cash flow |
+| **akshare** (primary) | Sina | Index daily data | SSE/SZSE indices |
+| **baostock** (fallback) | BaoStock | K-line, fundamentals | Used if akshare fails |
+| **baostock** | BaoStock | Trade dates, industry, stock list | Only available via baostock |
 
 ## Available Tools
 
-| Tool | Description |
-|---|---|
-| `ashare_history` | Historical K-line data (OHLCV) with adjustable frequency and price adjustment |
-| `ashare_fundamentals` | Quarterly fundamentals: profit, growth, balance sheet, cash flow, operations |
-| `ashare_trade_dates` | Trading calendar for A-share markets |
-| `ashare_industry` | Industry classification (Shenwan/CSRC) |
-| `ashare_stock_list` | List all A-share stocks with basic info |
+| Tool | Source | Description |
+|---|---|---|
+| `ashare_history` | akshare/baostock | Historical K-line data (OHLCV) |
+| `ashare_fundamentals` | akshare/baostock | Per-share metrics, ROE, ROA, margins, growth rates |
+| `ashare_financials` | akshare | Financial statements: 利润表, 资产负债表, 现金流量表 |
+| `ashare_valuation` | akshare | PE (TTM), PB, total market cap (Baidu) |
+| `ashare_index_daily` | akshare | SSE/SZSE index daily data |
+| `ashare_market_pb` | akshare | Market-wide PB with historical quantiles |
+| `ashare_market_pe` | akshare | Market-wide PE with historical quantiles |
+| `ashare_trade_dates` | baostock | Trading calendar |
+| `ashare_industry` | baostock | Industry classification (CSRC) |
+| `ashare_stock_list` | baostock | List all A-share stocks with basic info |
 
 ## Stock Code Format
 
-A-share codes use the format `{market}{code}`:
-- Shanghai: `sh` prefix (e.g., `sh600000` = Pudong Development Bank)
-- Shenzhen: `sz` prefix (e.g., `sz000001` = Ping An Bank)
-- ChiNext: `sz300xxx`
-- STAR Market: `sh688xxx`
+All tools accept flexible formats:
+- `sh600000`, `sz000001` (with exchange prefix)
+- `600036` (6-digit code, auto-detected)
+- `sh.600000` (baostock format also accepted)
 
 ## Usage Patterns
 
 ### Historical Price Data
 
 ```
-ashare_history(code="sh600000", start_date="2024-01-01", end_date="2024-12-31", frequency="d", adjustflag="2")
+ashare_history(code="600036", start_date="2024-01-01", end_date="2024-12-31")
 ```
 
-- `frequency`: `d` (daily), `w` (weekly), `m` (monthly), `5` (5-min), `15` (15-min), `30` (30-min), `60` (60-min)
-- `adjustflag`: `1` (forward-adjusted), `2` (backward-adjusted), `3` (unadjusted)
-
-### Fundamentals
+### Fundamentals (EPS, ROE, etc.)
 
 ```
-ashare_fundamentals(code="sh600000", year=2024, quarter=3)
+ashare_fundamentals(code="600036", year=2024, quarter=3)
 ```
 
-Returns a dict with keys: `profit`, `growth`, `balance`, `cash_flow`, `operation`.
+Returns per-share metrics (摊薄每股收益, 每股净资产, 每股经营性现金流), profitability ratios (总资产利润率, 净资产收益率, 销售净利率), and more.
 
-### Industry Classification
-
-```
-ashare_industry(code="sh600000")
-```
-
-### Trading Calendar
+### Financial Statements
 
 ```
-ashare_trade_dates(start_date="2024-01-01", end_date="2024-12-31")
+ashare_financials(code="600036", statement="利润表")
+ashare_financials(code="600036", statement="资产负债表")
+ashare_financials(code="600036", statement="现金流量表")
 ```
+
+### Valuation Metrics
+
+```
+ashare_valuation(code="600036", indicator="市盈率(TTM)")
+ashare_valuation(code="600036", indicator="市净率")
+ashare_valuation(code="600036", indicator="总市值")
+```
+
+### Market-Wide Valuation
+
+```
+ashare_market_pb()  # Overall A-share PB + historical quantiles
+ashare_market_pe()  # Overall A-share PE
+```
+
+### Index Data
+
+```
+ashare_index_daily(symbol="sh000001", start_date="2025-01-01", end_date="2025-04-01")
+```
+
+Common indices: `sh000001` (上证综指), `sz399001` (深证成指), `sz399006` (创业板指).
 
 ## Integration Notes
 
 - Data coverage: Full A-share history from 1990 onward
-- Fundamentals: Quarterly reports from 2007 onward
-- No API key required — baostock is free and open-source
+- Fundamentals: Quarterly reports via THS, dating back to IPO
+- Valuation: Daily PE/PB/market cap via Baidu Finance
+- No API key required — all sources are free
+- akshare tools use domestic APIs (no proxy needed)
+- baostock requires login/logout session management (handled automatically)
 - Data updates may lag by 1 business day
-- For real-time data, supplement with other sources
