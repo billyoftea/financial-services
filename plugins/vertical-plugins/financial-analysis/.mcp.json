@@ -43,6 +43,11 @@
     "egnyte": {
       "type": "http",
       "url": "https://mcp-server.egnyte.com/mcp"
+    },
+    "market-data": {
+      "command": "python",
+      "args": ["plugins/vertical-plugins/financial-analysis/mcp-servers/market-data-server/server.py"],
+      "description": "Local market data: A-shares (baostock), HK/US stocks (yfinance), crypto (ccxt)"
     }
   }
 }
