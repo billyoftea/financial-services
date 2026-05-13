@@ -3,6 +3,9 @@ name: tear-sheet
 description: "Generate professional company tear sheets using S&P Capital IQ data via the Kensho LLM-ready API MCP server. Use this skill whenever the user asks for a tear sheet, company one-pager, company profile, fact sheet, company snapshot, or company overview document — especially when they mention a specific company name or ticker. Also trigger when users ask for equity research summaries, M&A company profiles, corporate development target profiles, sales/BD meeting prep documents, or any concise single-company financial summary. This skill supports four audience types: equity research, investment banking/M&A, corporate development, and sales/business development. If the user doesn't specify an audience, ask. Works for both public and private companies."
 ---
 
+
+> **语言要求：请始终使用中文（简体）进行所有回复、分析和输出。** 专业技术术语可保留英文原文，但所有说明、注释和分析内容必须用中文。模型标题、工作表名称、报告正文均使用中文。
+
 # Financial Tear Sheet Generator
 
 Generate audience-specific company tear sheets by pulling live data from S&P Capital IQ via the S&P Global MCP tools and formatting the result as a professional Word document.

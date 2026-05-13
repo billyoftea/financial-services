@@ -3,6 +3,9 @@ name: deck-refresh
 description: Updates a presentation with new numbers — quarterly refreshes, earnings updates, comp rolls, rebased market data. Use whenever the user asks to "update the deck with Q4 numbers", "refresh the comps", "roll this forward", "swap in the new earnings", "change all the $485M to $512M", or any request to swap figures across an existing deck without rebuilding it.
 ---
 
+
+> **语言要求：请始终使用中文（简体）进行所有回复、分析和输出。** 专业技术术语可保留英文原文，但所有说明、注释和分析内容必须用中文。模型标题、工作表名称、报告正文均使用中文。
+
 # Deck Refresh
 
 Update numbers across the deck. The deck is the source of truth for formatting; you're only changing values.

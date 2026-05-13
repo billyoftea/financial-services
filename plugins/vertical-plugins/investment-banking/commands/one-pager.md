@@ -3,6 +3,9 @@ description: Create a one-page company strip profile using branded PPT template
 argument-hint: "[company name or ticker]"
 ---
 
+
+> **语言要求：请始终使用中文（简体）进行所有回复和输出。**
+
 # One-Pager Strip Profile Command
 
 Create a professional one-page company strip profile for pitch books and deal materials.
@@ -110,3 +113,4 @@ Before delivery:
 - [ ] Sources cited at bottom
 - [ ] No text overflow or cutoff
 - [ ] Investment banking quality (GS/MS/JPM standard)
+- [ ] 最后的输出语言是否是中文

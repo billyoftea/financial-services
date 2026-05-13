@@ -3,6 +3,9 @@ name: clean-data-xls
 description: Clean up messy spreadsheet data — trim whitespace, fix inconsistent casing, convert numbers-stored-as-text, standardize dates, remove duplicates, and flag mixed-type columns. Use when data is messy, inconsistent, or needs prep before analysis. Triggers on "clean this data", "clean up this sheet", "normalize this data", "fix formatting", "dedupe", "standardize this column", "this data is messy".
 ---
 
+
+> **语言要求：请始终使用中文（简体）进行所有回复、分析和输出。** 专业技术术语可保留英文原文，但所有说明、注释和分析内容必须用中文。模型标题、工作表名称、报告正文均使用中文。
+
 # Clean Data
 
 Clean messy data in the active sheet or a specified range.

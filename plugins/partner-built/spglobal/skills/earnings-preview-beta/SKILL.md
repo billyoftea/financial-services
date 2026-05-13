@@ -3,6 +3,9 @@ name: earnings-preview-single
 description: Generate a concise 4-5 page equity research earnings preview for a single company. Analyzes the most recent earnings transcript, competitor landscape, valuation, and recent news to produce a professional HTML report.
 ---
 
+
+> **语言要求：请始终使用中文（简体）进行所有回复、分析和输出。** 专业技术术语可保留英文原文，但所有说明、注释和分析内容必须用中文。模型标题、工作表名称、报告正文均使用中文。
+
 # Single-Company Earnings Preview
 
 Generate a concise, professional equity research earnings preview for a single company. The output is a self-contained HTML file targeting 4-5 printed pages. The report is dense with figures and data, with tight narrative that gets straight to the point.

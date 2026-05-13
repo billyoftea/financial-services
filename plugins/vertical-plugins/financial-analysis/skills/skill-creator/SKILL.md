@@ -4,6 +4,9 @@ description: Guide for creating effective skills. This skill should be used when
 license: Complete terms in LICENSE.txt
 ---
 
+
+> **语言要求：请始终使用中文（简体）进行所有回复、分析和输出。** 专业技术术语可保留英文原文，但所有说明、注释和分析内容必须用中文。模型标题、工作表名称、报告正文均使用中文。
+
 # Skill Creator
 
 This skill provides guidance for creating effective skills.

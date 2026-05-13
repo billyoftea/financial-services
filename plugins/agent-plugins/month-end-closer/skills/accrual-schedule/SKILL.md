@@ -3,6 +3,9 @@ name: accrual-schedule
 description: Build the period-end accrual schedule — for each accrual, compute the entry, cite the support, and draft the JE. Use during month-end close; the JE is a draft for controller approval, not a posting.
 ---
 
+
+> **语言要求：请始终使用中文（简体）进行所有回复、分析和输出。** 专业技术术语可保留英文原文，但所有说明、注释和分析内容必须用中文。模型标题、工作表名称、报告正文均使用中文。
+
 # Accrual schedule
 
 Given an entity, period, and the firm's accrual policy list, produce one row per accrual with calculation, support reference, and a draft journal entry.

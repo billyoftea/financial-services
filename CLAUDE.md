@@ -1,3 +1,13 @@
+## 语言要求 / Language Requirement
+
+**所有技能（Skills）、代理（Agents）和命令（Commands）在执行任务时，必须优先使用中文（简体）进行回复、分析和输出。** 包括但不限于：
+- 分析报告和注释说明使用中文
+- Excel/PowerPoint 模型的标题、注释、工作表名称使用中文
+- 数据来源说明和假设逻辑使用中文
+- 专业技术术语可保留英文原文（如 DCF、WACC、EBITDA），但解释说明用中文
+
+---
+
 # Financial Services Plugins
 
 Cowork plugins and Claude Managed Agent templates for financial services. Each named agent ships two ways from one source.

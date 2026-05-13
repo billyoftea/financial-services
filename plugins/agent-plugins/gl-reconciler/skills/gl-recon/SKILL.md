@@ -3,6 +3,9 @@ name: gl-recon
 description: Reconcile general ledger to subledger for a trade date or period — match at the position or transaction level, surface breaks, and classify each break by likely cause. Use for daily or month-end recon runs across asset classes.
 ---
 
+
+> **语言要求：请始终使用中文（简体）进行所有回复、分析和输出。** 专业技术术语可保留英文原文，但所有说明、注释和分析内容必须用中文。模型标题、工作表名称、报告正文均使用中文。
+
 # GL ↔ subledger reconciliation
 
 Given a GL extract and a subledger extract for the same scope (entity, asset class, date), produce a matched set and a break report.

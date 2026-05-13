@@ -3,6 +3,9 @@ description: Analyze quarterly earnings and create an earnings update report
 argument-hint: "[company name or ticker] [quarter, e.g. Q3 2024]"
 ---
 
+
+> **语言要求：请始终使用中文（简体）进行所有回复和输出。**
+
 # Earnings Analysis Command
 
 Create a professional equity research earnings update report analyzing quarterly results.

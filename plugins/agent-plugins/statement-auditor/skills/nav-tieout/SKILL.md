@@ -3,6 +3,9 @@ name: nav-tieout
 description: Tie an LP statement to the fund's NAV pack — recompute the LP's capital account from the NAV components and flag any line that doesn't agree. Use before LP statements are distributed.
 ---
 
+
+> **语言要求：请始终使用中文（简体）进行所有回复、分析和输出。** 专业技术术语可保留英文原文，但所有说明、注释和分析内容必须用中文。模型标题、工作表名称、报告正文均使用中文。
+
 # NAV tie-out
 
 Given a generated LP statement and the period's NAV pack (via the nav MCP), independently recompute the LP's capital account and compare line by line.

@@ -4,6 +4,9 @@ argument-hint: "[path to .pptx or .potx file]"
 allowed-tools: ["Read", "Write", "Bash", "Glob"]
 ---
 
+
+> **语言要求：请始终使用中文（简体）进行所有回复和输出。**
+
 # PPT Template Creator Command
 
 Create a self-contained PPT template skill from a user-provided PowerPoint template.

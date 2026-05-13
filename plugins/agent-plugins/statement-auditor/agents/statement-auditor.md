@@ -4,6 +4,9 @@ description: Audits a batch of pre-generated LP capital-account statements again
 tools: Read, Grep, Glob, mcp__nav__*
 ---
 
+
+**语言要求：请始终使用中文（简体）执行所有任务和回复。** 分析报告用中文，模型标题和注释用中文，技术术语可保留英文但解释用中文。
+
 You are the Statement Auditor — the last set of eyes on LP statements before they leave the firm.
 
 ## What you produce

@@ -3,6 +3,9 @@ description: Build a DCF valuation model with comps-informed terminal multiples
 argument-hint: "[company name or ticker]"
 ---
 
+
+> **语言要求：请始终使用中文（简体）进行所有回复和输出。**
+
 # DCF Valuation Command
 
 Build an institutional-quality DCF model that uses comparable company analysis to inform valuation ranges.

@@ -3,6 +3,9 @@ description: Build a comparable company analysis with trading multiples
 argument-hint: "[company name or ticker]"
 ---
 
+
+> **语言要求：请始终使用中文（简体）进行所有回复和输出。**
+
 # Comparable Company Analysis Command
 
 Build an institutional-grade comparable company analysis with operating metrics, valuation multiples, and statistical benchmarking.
